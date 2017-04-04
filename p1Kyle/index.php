@@ -1,8 +1,7 @@
 <?php
-include 'support.php';
-include 'control.php';
 include 'header.php';
 ?>
+
 <!-- A Home page - Welcome message, info and links about other sections etc. -->
 
 <!-- You must use the Bootstrap Framework to support your implementation. Alternative Frameworks may be approved on case-by-case basis if a team wishes to ask. -->

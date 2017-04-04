@@ -1,0 +1,21 @@
+.jumbotron {
+		margin-bottom: 0px;
+        text-align: center;
+        background-image: url("veggies.jpg");
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        heigh:auto;
+        padding: 50px;
+}
+
+
+.page-header {
+	border-bottom: 0px;
+}
+.Title{
+    text-align: center;
+}
+.footer{
+ padding-left: 15px;   
+}
+

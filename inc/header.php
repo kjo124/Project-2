@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-
-
 <!-- A Common Header (Title and Logo), Footer and Navigation elements on all pages - Please implement using the PHP include tag. -->
-
 <html lang="en-US">
-
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,18 +14,10 @@
 	<link rel="stylesheet" href="style.css">
 	<title>CT310 Project #1</title>
 </head>
-
-
-
 <!-- Start of page Body  -->
-
-
 <body>
-
 <div class="jumbotron">
-    <h1>Project #1 <img src="Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
+    <h1>Project #2 <img src="Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
 </div>
-
 <?php include 'nav.php';?>
-
 <div class="content">

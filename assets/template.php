@@ -7,11 +7,8 @@ include 'header.php';
 <div class="container-fluid">
 	<div class="row visible-on">
 		<div class="col-md-3">
-      <!-- TODO:  Customers have a shopping basket and can submit orders.
-       A customer can add and remove ingredients from a shopping basket and submit
-         an order. Once submitted, the customer and the administrator(s) receive and
-         email version of the order. -->
 			<!-- left -->
+      <?php include 'authentication.php';?>
 		</div>
 		<div class="col-md-6">
 			<!-- middle -->

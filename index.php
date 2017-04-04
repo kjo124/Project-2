@@ -9,12 +9,12 @@ include 'header.php';
 <div class="container-fluid">
 	<div class="row visible-on">
 		<div class="col-md-3">
-			<?php include 'Authentication.php';?>
+			<?php include 'authentication.php';?>
 		</div>
 		<div class="col-md-6">
-			<p>Welcome to Kyle Odin & Dan McClure Project #1. We have included
-			a About Us page as well as our three ingredients, Cabbage, Eggplant,
-			and Leek. Feel free to login and comment on our ingredients.</p>
+			<p>Welcome to Kyle Odin & Bobby Elliott Project #2. We have added ability
+				to add ingredients, a shopping cart, and customer/admin accounts. Feel
+				free to login and comment on our ingredients.</p>
 		</div>
 		<div class="col-md-3">
 			<div class="image">

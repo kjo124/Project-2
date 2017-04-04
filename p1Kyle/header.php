@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-
 <?php
 if (!isset($_SESSION)) {session_start();}
 ?>
+<!DOCTYPE html>
+
 
 <!-- A Common Header (Title and Logo), Footer and Navigation elements on all pages - Please implement using the PHP include tag. -->
 
@@ -28,12 +28,11 @@ if (!isset($_SESSION)) {session_start();}
 
 
 <body>
-	
+
 <div class="jumbotron">
-    <h1>Project #1 <img src="Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>  
+    <h1>Project #1 <img src="Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
 </div>
 
 <?php include 'nav.php';?>
 
 <div class="content">
-

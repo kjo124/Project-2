@@ -9,8 +9,9 @@
 	<?php
 		if(isset($_SESSION["username"])) {
 			echo "Logged in as: " . $_SESSION["username"];
+			echo "You are a: " . $_SESSION["userType"]
 		} else {
-			echo "Logged in as: unknown";
+			echo "Logged in as: Guest";
 		}
 		//echo "<br>";
 		// print_r($_SESSION);

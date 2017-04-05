@@ -1,24 +1,18 @@
 <?php
-class Album{
+class Ingredient{
 	public $name;
 	public $middleText;
-	public $artist;
-	public $rank;
-	public $id;
+	public $pictureFile;
+	public $comments;
 
-	public static function getAlbumFromRow($row){
-		$album = new Album();
-		$album->title = $row['title'];
-		$album->year = $row['year'];
-		$album->rank = $row['rank'];
-		$album->id = $row['album_id'];
-		if(isset($row['artist'])){
-			$album->artist = new Artist($row['artist'], $row['artist_id']);
-		}
-		return $album;
+	public static function getIngredient($row){
+		$ingredient = new Album();
+		$ingredient->name = $row['name'];
+		$ingredient->middleText = $row['middleText'];
+		$ingredient->pictureFile = $row['pictureFile'];
+		$ingredient->comments = $row['comments'];
+		
+		return $ingredient;
 	}
 
-	function __toString(){
-		return $this->title . '(' . $this->year . ')';
-	}
 }

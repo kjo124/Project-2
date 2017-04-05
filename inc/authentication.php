@@ -14,5 +14,6 @@
 <input type='submit' name='Submit' value='Submit' />
 </fieldset>
 </form>
+Forget your password? Click <a href = "./fmp.php" tite = "Logout">here</a>!
 <hr>
 </center>

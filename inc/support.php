@@ -16,8 +16,6 @@ function setupDefaultUsers() {
 	$users = array ();
 	$i = 0;
 	$users [$i ++] = makeNewUser ( 'Simons', 'Cat', '$2y$10$duu7O.7GM5dZp1LBtrGLm.eg.649dJKdhKHVtup8yqlny1flKQoNe' );
-	$users [$i ++] = makeNewUser ( 'George', 'Tirebiter', '$2y$10$lnY6NbT56JrQxeNy9/Co0ODytTOxNifKjh9wnv97FoxS91Ia2LLp.' );
-	$users [$i ++] = makeNewUser ( 'Chris', 'Isaak', '372a1bddc8fdca6bf09cb05e65606e19' );
 	writeUsers ( $users );
 }
 function writeUsers($users) {

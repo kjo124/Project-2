@@ -1,7 +1,7 @@
 <?php
-include './inc/support.php';
-include './inc/control.php';
-include './inc/header.php';
+include 'inc/support.php';
+include 'inc/control.php';
+include 'inc/header.php';
 ?>
 <!-- A Home page - Welcome message, info and links about other sections etc. -->
 
@@ -9,7 +9,7 @@ include './inc/header.php';
 <div class="container-fluid">
 	<div class="row visible-on">
 		<div class="col-md-3">
-			<?php include './inc/authentication.php';?>
+			<?php include 'inc/authentication.php';?>
 		</div>
 		<div class="col-md-6">
 			<p>Welcome to Kyle Odin & Bobby Elliott Project #2. We have added ability

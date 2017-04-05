@@ -3,13 +3,11 @@
 <!-- All your pages will carry a disclaimer on the footer in fine print which reads: "This site is part of a CSU CT 310 Course Project." The text "CT 310" will be a link to the course homepage. -->
 </div>
 
-
-
 <div class="footer">
 	<?php
 		if(isset($_SESSION["username"])) {
 			echo "Logged in as: " . $_SESSION["username"];
-			echo "You are a: " . $_SESSION["userType"]
+			echo "You are a: " . $_SESSION["userType"];
 		} else {
 			echo "Logged in as: Guest";
 		}

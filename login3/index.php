@@ -68,7 +68,7 @@
       
 
 <?php
-include 'footer.php';
+include 'inc/footer.php';
 ?>
       
    </body>

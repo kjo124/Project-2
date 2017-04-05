@@ -1,5 +1,5 @@
 <?php
-  include 'control.php';
+  include 'inc/control.php';
   session_unset();
   session_destroy();
   header("Location: index.php");

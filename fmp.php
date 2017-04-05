@@ -51,7 +51,7 @@ session_start();
                                     <form class="form-email" role="form" action="" method="post">
                                         <p>Select user name:</p>
                                                 <select name = "username">
-                                                        <option value="Bobby">Bob</option>
+                                                        <option value="Bobby">Bobby</option>
                                                         <option value="Kyle">Kyle</option>
                                                         <option value="ct310">ct310</option>
                                                 </select>

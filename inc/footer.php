@@ -15,7 +15,7 @@
 		// print_r($_SESSION);
 	?>
 	<p>This site is part of a CSU <a href="https://www.cs.colostate.edu/~ct310/yr2017sp/index.php">CT 310</a> Course Project.</p>
-	<a href = "logout.php"> Logout </a>
+	<a href = "./logout.php"> Logout </a>
 </div>
 </body>
 

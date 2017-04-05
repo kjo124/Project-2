@@ -18,12 +18,13 @@ function makeNewUser($first, $pass, $h) {
 function setupDefaultUsers() {
 	$users = array ();
 	$i = 0;
-	$users [$i ++] = makeNewUser ( 'bob', '$2a$07$AGlkyWHt4K5H8Cv7ekuTeOJPUKZyyY9h9E./MdjNrYjCRIlYgTpym', 'bobby20@comcast.net' );
+	$users [$i ++] = makeNewUser ( 'Bobby', '$2a$07$AGlkyWHt4K5H8Cv7ekuTeOJPUKZyyY9h9E./MdjNrYjCRIlYgTpym', 'bobby20@comcast.net' );
+	$users [$i ++] = makeNewUser ( 'Kyle', '$2a$10$FxWxytnHKvq598xKdP.aYOVcOLdfCXszevDYlcSmdB0FStPbcY/JW', 'kylejodin@gmail.com' );
 	$users [$i ++] = makeNewUser ( 'ct310', '$2a$07$xfB0CelpA4myJ5EOfb7KT.57k83KPfHaOTsH22.di8VMPCtqh5heC', 'nspatil@colostate.edu' );
 	writeUsers ( $users );
 }
 function writeUsers($users) {
-	$fh = fopen ( 'users.csv', 'w+' ) or die ( "Can't open file" );
+	$fh = fopen ( 'databases/users.csv', 'w+' ) or die ( "Can't open file" );
 	fputcsv ( $fh, array_keys ( get_object_vars ( $users [0] ) ) );
 	for($i = 0; $i < count ( $users ); $i ++) {
 		fputcsv ( $fh, get_object_vars ( $users [$i] ) );
@@ -31,7 +32,7 @@ function writeUsers($users) {
 	fclose ( $fh );
 }
 function readUsers() {
-	if (! file_exists ( 'users.csv' )) {
+	if (! file_exists ( 'databases/users.csv' )) {
 		setupDefaultUsers ();
 	}
 	$users = array ();

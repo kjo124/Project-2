@@ -2,13 +2,10 @@
 <?php
 
 include 'inc/control.php';
-<<<<<<< HEAD
-=======
 require_once 'assets/passwordLib.php';
->>>>>>> origin/master
 
              $msg = '';
-            if (!empty($_POST['username']) 
+            if (!empty($_POST['username'])
                && !empty($_POST['password'])) {
                $nameOfUser = $_POST['username'];
                 $handle = fopen("databases/users.csv", "r");
@@ -17,7 +14,7 @@ require_once 'assets/passwordLib.php';
                  $_SESSION['valid'] = true;
                  $_SESSION['curentdate'] = date('Y-m-d g:i:s');
                  $_SESSION['username'] = $_POST['username'];
-                 header("location: index.php"); 
+                 header("location: index.php");
                  die();
                }
                else {
@@ -29,10 +26,10 @@ require_once 'assets/passwordLib.php';
 // if(empty($_POST['username']) || empty($_POST['password'])) {
 //   echo "Empty Password or Username!";
 // } else {
-// 
-// 
-//     
-// 
+//
+//
+//
+//
 //   // TODO: Log in stuff
 //   $succ = 0;
 //   for($i = 0; $i < sizeof($accessPasswords); $i++) {
@@ -40,17 +37,17 @@ require_once 'assets/passwordLib.php';
 //       $succ++;
 //     }
 //   }
-// 
+//
 //   if($succ > 0) {
 //     echo "Successful Login!";
 //     echo "<hr>";
 //     $newUsername = filter_var($username, FILTER_SANITIZE_STRING);
 //     $_SESSION["username"] = $newUsername;
 //     $_SESSION["currentdate"] = date('Y-m-d g:i:s');
-// 
+//
 //     print_r($_SESSION);
-// 
-// 
+//
+//
 //     header("Location: index.php");
 //     die();
 //   } else {

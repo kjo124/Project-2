@@ -6,12 +6,12 @@ class Ingredient{
 	public $comments;
 
 	public static function getIngredient($row){
-		$ingredient = new Album();
+		$ingredient = new Ingredient();
 		$ingredient->name = $row['name'];
-		$ingredient->middleText = $row['middleText'];
-		$ingredient->pictureFile = $row['pictureFile'];
-		$ingredient->comments = $row['comments'];
-		
+		$ingredient->middleText = $row['text'];
+		$ingredient->pictureFile = $row['picture'];
+		$ingredient->comments = $row['comment'];
+
 		return $ingredient;
 	}
 

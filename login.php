@@ -1,7 +1,7 @@
 
 <?php
 
-include 'control.php';
+include 'inc/control.php';
 
 if(empty($_POST['username']) || empty($_POST['password'])) {
   echo "Empty Password or Username!";

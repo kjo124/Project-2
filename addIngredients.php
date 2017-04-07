@@ -10,22 +10,28 @@ include 'inc/header.php';
                             $msg = '';
                             $arr = readIngredients();
                             
-                            if (isset($_POST['submit'])  && !empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['image'])){
+                            if (isset($_POST['submit'])){
+                            
+                            
+                            if(!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['image'])){
 
                                 $newIng = makeNewIng($_POST['name'], $_POST['description'], $_POST['image']);
                                 array_push($arr, $newIng);
                                 
                                 writeIngredients($arr);
                                 $msg = 'Ingredient added';
-                                    
+                                header("location: index.php");     
                 
                         }
+                        
                         else{
-                            $msg = 'Please enter all fields';
+                            $msg = 'Please enter all fields*';
+                        }
                         }
                 
                             ?>
-                         <p align="center"><?php echo $msg; ?> </p>
+                         <p align="center"><?php echo "<font color='red'> $msg</font>"; ?> </p>
+                       
                         </div>
 
 

@@ -1,25 +1,57 @@
 <?php
-include 'support.php';
-include 'control.php';
-include 'header.php';
+include 'inc/support.php';
+include 'inc/control.php';
+include 'inc/header.php';
 ?>
 
 
-<div class="container-fluid">
-	<div class="row visible-on">
-		<div class="col-md-3">
-      <!-- TODO: name, new text description, and the uploading of an image. The text will all
-      be entered into a database of your construction. The file name of the image
-      will also go in the database. -->
-			<!-- left -->
-		</div>
-		<div class="col-md-6">
-			<!-- middle -->
-		</div>
-		<div class="col-md-3">
-			<!-- right -->
-		</div>
-	</div>
-</div>
+ <div class = "container form-addIng">
+                            <?php
+                            $msg = '';
+                            $arr = readIngredients();
+                            
+                            if (isset($_POST['submit'])  && !empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['image'])){
 
-<?php include 'footer.php';?>
+                                $newIng = makeNewIng($_POST['name'], $_POST['description'], $_POST['image']);
+                                array_push($arr, $newIng);
+                                
+                                writeIngredients($arr);
+                                $msg = 'Ingredient added';
+                                    
+                
+                        }
+                        else{
+                            $msg = 'Please enter all fields';
+                        }
+                
+                            ?>
+                         <p align="center"><?php echo $msg; ?> </p>
+                        </div>
+
+
+
+
+<div class = "container" align="center">
+         <form class = "form-addIng" role = "form" 
+            action = "" method = "post">
+            <h4 class = "form-signin-heading"></h4>
+            Name of Ingredient:
+            <input type = "text" class = "form-control" 
+               name = "name" ></br>
+            Text description:
+            <input type = "text" class = "form-control"
+               name = "description" ></br>
+            Image:
+            <input type = "text" class = "form-control"
+               name = "image" ></br>
+            <div class="button">
+            <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
+               name = "submit">Add Ingredient</button>
+            </div>
+            </br>
+         </form>
+      </div> 
+
+
+
+<?php include 'inc/footer.php';?>

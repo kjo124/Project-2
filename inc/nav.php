@@ -23,9 +23,10 @@
         		<li class="dropdown">
           			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ingredients<span class="caret"></span></a>
       				<ul class="dropdown-menu">
-   						<li><a href="Cabbage.php">Cabbage</a></li>
-    					<li><a href="Eggplant.php">Eggplant</a></li>
-    					<li><a href="Leek.php">Leek</a></li>
+                                    <?php $arr = readIngredients();
+                                    for($i = 0; $i < count($arr); $i++){ ?>
+                                        <li><a href="Cabbage.php"><?php echo $arr[$i]->name ?></a></li>
+                                        <?php } ?>
         			</ul>
         			
         		</li>

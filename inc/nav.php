@@ -31,10 +31,16 @@
         		</li>
         		
       		</ul>
+      		 <?php
+                if ($_SESSION['userType'] == "Administrator"){?>
+      		<ul class="nav navbar-nav navbar-right">
+                    <li><a href="./addIngredients.php"><span class="glyphicon glyphicon-plus"></span> Add ingredient</a></li>
+                    </ul>
+                    <?php } ?>
                 <?php
                 if ($_SESSION['userType'] == "Customer"){?>
       		<ul class="nav navbar-nav navbar-right">
-                    <li><a href="./shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                    <li><a href="./shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> cart</a></li>
                     </ul>
                     <?php } ?>
 

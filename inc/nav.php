@@ -24,8 +24,9 @@
           			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ingredients<span class="caret"></span></a>
       				<ul class="dropdown-menu">
                                     <?php $arr = readIngredients();
-                                    for($i = 0; $i < count($arr); $i++){ ?>
-                                        <li><a href="Cabbage.php"><?php echo $arr[$i]->name ?></a></li>
+                                    for($i = 0; $i < count($arr); $i++){ 
+                                        $s = "ingredientTemplate.php?id=".$arr[$i]->name;?>
+                                        <li><a href= <?php echo $s?> ><?php echo $arr[$i]->name ?></a></li>
                                         <?php } ?>
         			</ul>
         			
@@ -33,6 +34,7 @@
         		
       		</ul>
       		 <?php
+                if (isset($_SESSION['userType'])){
                 if ($_SESSION['userType'] == "Administrator"){?>
       		<ul class="nav navbar-nav navbar-right">
                     <li><a href="./addIngredients.php"><span class="glyphicon glyphicon-plus"></span> Add ingredient</a></li>
@@ -44,6 +46,7 @@
                     <li><a href="./shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> cart</a></li>
                     </ul>
                     <?php } ?>
+                  <?php } ?>  
 
     	</div>
   	</div>

@@ -1,17 +1,29 @@
 <?php
-include 'support.php';
-include 'control.php';
-include 'header.php';
+include 'inc/support.php';
+include 'inc/control.php';
+include 'inc/header.php';
+ $id = $_GET['id'];
 ?>
 
 <div class="container-fluid">
 	<div class="row visible-on">
 		<div class="col-md-3">
-			<?php include 'authentication.php';?>
-			<?php include 'commenting.php';?>
+			<?php include 'inc/authentication.php';?>
+			<?php include 'inc/commenting.php';?>
 			<!-- left -->
 		</div>
 		<div class="col-md-6">
+                    <div class="Title">
+                                <h1 align="center"><?php echo $id ?> </h1> 
+                    </div>
+                                <div class="maincontent"> 
+                                <?php 
+                                $handle = fopen("databases/ingredients.csv", "r");
+                                while (($data = fgetcsv($handle)) !==FALSE){
+                                    if($id == $data['0']){
+                                         echo $data['1'];
+                                    }
+                                }?>
 			<!-- middle -->
 		</div>
 		<div class="col-md-3">
@@ -20,4 +32,4 @@ include 'header.php';
 	</div>
 </div>
 
-<?php include 'footer.php';?>
+<?php include 'inc/footer.php';?>

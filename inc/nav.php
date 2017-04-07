@@ -27,8 +27,13 @@
     					<li><a href="Eggplant.php">Eggplant</a></li>
     					<li><a href="Leek.php">Leek</a></li>
         			</ul>
+        			
         		</li>
+        		
       		</ul>
+      		<ul class="nav navbar-nav navbar-right">
+                    <li><a href="./shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                    </ul>
     	</div>
   	</div>
 </nav>

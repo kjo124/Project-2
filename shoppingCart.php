@@ -1,7 +1,7 @@
 <?php
-include 'support.php';
-include 'control.php';
-include 'header.php';
+include 'inc/support.php';
+include 'inc/control.php';
+include 'inc/header.php';
 ?>
 
 <div class="container-fluid">
@@ -22,4 +22,4 @@ include 'header.php';
 	</div>
 </div>
 
-<?php include 'footer.php';?>
+<?php include 'inc/footer.php';?>

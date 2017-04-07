@@ -31,9 +31,13 @@
         		</li>
         		
       		</ul>
+                <?php
+                if ($_SESSION['userType'] == "Customer"){?>
       		<ul class="nav navbar-nav navbar-right">
                     <li><a href="./shoppingCart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
                     </ul>
+                    <?php } ?>
+
     	</div>
   	</div>
 </nav>

@@ -54,6 +54,8 @@ session_start();
                                                         <option value="Bobby">Bobby</option>
                                                         <option value="Kyle">Kyle</option>
                                                         <option value="ct310">ct310</option>
+                                                        <option value="cust1">Cust1</option>
+                                                        <option value="cust2">Cust2</option>
                                                 </select>
                                                 <br></br>
                                                 <div class="button">

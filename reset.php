@@ -19,8 +19,8 @@ session_start();
                             $key = $_GET['key'];
                             $msg = '';
                             if($key == $_SESSION['key']){
-                            require_once 'login3/passwordLib.php';
-                            include 'login3/support.php';
+                            require_once 'inc/passwordLib.php';
+                            include 'inc/support.php';
                             $arr = readUsers();
                             
                             if (isset($_POST['reset'])  && !empty($_POST['password']) && !empty($_POST['password2'])){

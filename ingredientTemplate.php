@@ -13,10 +13,10 @@ include 'inc/header.php';
 			<!-- left -->
 		</div>
 		<div class="col-md-6">
-                    <div class="Title">
-                                <h1 align="center"><?php echo $id ?> </h1> 
+                    <div class="Title" align="center">
+                                <h1><?php echo $id ?> </h1> 
                     </div>
-                                <div class="maincontent"> 
+                                <div class="maincontent" align="center"> 
                                 <?php 
                                 $handle = fopen("databases/ingredients.csv", "r");
                                 while (($data = fgetcsv($handle)) !==FALSE){
@@ -24,9 +24,11 @@ include 'inc/header.php';
                                          echo $data['1'];
                                     }
                                 }?>
+                                </div>
 			<!-- middle -->
 		</div>
 		<div class="col-md-3">
+                        
 			<!-- right -->
 		</div>
 	</div>

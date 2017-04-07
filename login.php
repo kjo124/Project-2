@@ -14,6 +14,12 @@ require_once 'assets/passwordLib.php';
                  $_SESSION['valid'] = true;
                  $_SESSION['curentdate'] = date('Y-m-d g:i:s');
                  $_SESSION['username'] = $_POST['username'];
+                 if($nameOfUser == "Bobby" || $nameOfUser == "Kyle" || $nameOfUser == "ct310"){
+                    $_SESSION['userType'] = "Administrator";
+                 }
+                 else{
+                    $_SESSION['userType'] = "Customer";
+                 }
                  header("location: index.php");
                  die();
                }

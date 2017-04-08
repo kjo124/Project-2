@@ -11,13 +11,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="./assets/css/styles.css">
 	<title>CT310 Project #2</title>
 </head>
 <!-- Start of page Body  -->
 <body>
 <div class="jumbotron">
-    <h1>Project #2 <img src="/assets/img/Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
+    <h1>Project #2 <img src="./assets/img/Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
 </div>
 <?php include 'nav.php';?>
 <div class="content">

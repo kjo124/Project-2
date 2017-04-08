@@ -2,6 +2,7 @@
 include 'inc/support.php';
 include 'inc/control.php';
 include 'inc/header.php';
+$max_file_size = 1000000;
 ?>
 
 
@@ -48,8 +49,9 @@ include 'inc/header.php';
             <input type = "text" class = "form-control"
                name = "description" ></br>
             Image:
-            <input type = "text" class = "form-control"
-               name = "image" ></br>
+            <input type = "hidden" name = "MAX_FILE_SIZE" value="<?php echo $max_file_size; ?>" />
+            <input type = "file" class = "form-control" align = "middle"
+               name = "image" id ="fimage"></br>
             <div class="button">
             <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
                name = "submit">Add Ingredient</button>

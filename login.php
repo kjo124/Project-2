@@ -66,6 +66,7 @@ require_once 'assets/passwordLib.php';
 
 <html>
 <body>
+    <?php header("location: index.php"); ?>
   <a href = "index.php"> index </a>
 </body>
 </html>

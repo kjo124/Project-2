@@ -28,7 +28,17 @@ include 'inc/header.php';
 			<!-- middle -->
 		</div>
 		<div class="col-md-3">
-                        
+                        <?php
+                        if (isset($_SESSION['userType'])){
+                            if ($_SESSION['userType'] == "Customer"){?>
+                                <form id ="addCart" class="form-buy" role="form" action="" method="post" align="center" >
+                                    <div class="button" >
+                                        <button  class = "btn btn-lg btn-primary btn-block" type = "submit" name = "ing" ><span class="glyphicon glyphicon-plus-sign"> Add to cart</span></button>
+                                    </div>
+                                </form>
+                        <?php    }
+                          }  
+                        ?>
 			<!-- right -->
 		</div>
 	</div>

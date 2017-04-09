@@ -1,4 +1,7 @@
 #fimage{
-	height: auto;
-	width: 250px;
+    height: auto;
+    width: 250px;
+}
+#addCart{
+    width: 200px;
 }

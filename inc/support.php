@@ -53,7 +53,8 @@ class Database extends PDO {
 
 		$comment = $com->fetchColumn();
 
-		return $allcomments;
+		return $comment;
+		//return $allcomments;
 		}
 
 		function createTableComments(){

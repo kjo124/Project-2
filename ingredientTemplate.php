@@ -6,7 +6,7 @@ include 'inc/header.php';
 
  $db = new Database();
  //$db->createTableIngredients();
- 
+
 
  $ingredient = $db->findIngredient($id);
 ?>

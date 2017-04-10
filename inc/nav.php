@@ -20,7 +20,7 @@
      		<ul class="nav navbar-nav">
      			<li><a href="index.php">Home</a></li>
      			<li><a href="AboutUs.php">About Us</a></li>
-          <li><a href="createData.php">Create Databases</a></li>
+          <li><a href="createData.php">Drop & Create Databases</a></li>
         		<li class="dropdown">
           			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ingredients<span class="caret"></span></a>
       				<ul class="dropdown-menu">

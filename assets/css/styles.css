@@ -12,6 +12,8 @@ div.image{
 }
 
 
+
+
 p.caption{
 	text-align: center;
 }
@@ -42,6 +44,16 @@ div.footer{
 	margin-right: auto;
 	border-style: solid;
     	border-width: medium;
+}
+
+div.shownComments{
+	background-color: white;
+	padding: 1em 1em 1em 1em;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+  border-width: medium;
 }
 
 

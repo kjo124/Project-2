@@ -8,22 +8,42 @@
 
     <form action="" method="POST">
       <div align="center">
-        <input type="text" name="comment"><br>
+        <!-- <input type="textarea" name="comment"><br> -->
+        <textarea name="comment" cols="40" rows="5"></textarea>
         <input type="submit" value="save">
       </div>
     </form><br>
       <?php
       if (isset($_POST['comment'])===true) {
         $newstr = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
-        echo "\n";
+        echo "<br>";
         echo "Comment added.";
-        echo "\n";
+        echo "<br>";
         $dbc->addComment($id, $newstr );
-        commentArr = $dbc->getComments($id);
-        // TODO:  Print commentArr
+        $commentArr = $dbc->getComments($id);
+
+        ?>
+
+        <div class="shownComments">
+          <?php
+          // TODO:  Print commentArr
+          echo $commentArr;
+          ?>
+        </div>
+        <?php
+
       } else {
-        commentArr = $dbc->getComments($id);
-        // TODO:  Print commentArr
+        $commentArr = $dbc->getComments($id);
+
+        ?>
+
+        <div class="shownComments">
+          <?php
+          // TODO:  Print commentArr
+          echo $commentArr;
+          ?>
+        </div>
+        <?php
       }
 
     }

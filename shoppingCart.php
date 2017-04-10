@@ -1,6 +1,12 @@
 <?php
 include 'inc/support.php';
 include 'inc/control.php';
+
+if (!$_SESSION['userType'] == "Customer"){
+  header('Location: index.php');
+  exit;
+}
+
 include 'inc/header.php';
 ?>
 
@@ -12,9 +18,32 @@ include 'inc/header.php';
          an order. Once submitted, the customer and the administrator(s) receive and
          email version of the order. -->
 			<!-- left -->
+      <form action="" method="POST">
+        <input type="submit" name="submit" value="Clear Cart">
+      </form>
+      <?php
+      if (isset($_POST['submit'])===true) {
+        if (isset($_SESSION['cart_items'])===true) {
+          //Session is set
+          $cart_array=array();
+          $_SESSION['cart_items'] = $cart_array;
+          echo "\n";
+          echo "Removed all items from cart";
+        } else {
+          //Session is not set, setting session now
+          echo "\n";
+          echo "Removed all items from empty cart";
+        }
+      }
+      ?>
+
+
 		</div>
 		<div class="col-md-6">
 			<!-- middle -->
+
+      <?php  print_r($_SESSION['cart_items']); ?>
+
 		</div>
 		<div class="col-md-3">
 			<!-- right -->

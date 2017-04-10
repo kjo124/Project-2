@@ -7,6 +7,7 @@
 	<?php
 		if(isset($_SESSION["username"])) {
 			echo "Logged in as: " . $_SESSION["username"];
+			echo "<br>";
 			echo "You are a: " . $_SESSION["userType"];
 		} else {
 			echo "Logged in as: Guest";

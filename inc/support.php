@@ -2,6 +2,143 @@
 
 require_once "assets/passwordLib.php";
 
+class Database extends PDO {
+	public function __construct() {
+		parent::__construct ( "sqlite: ingredients.db" );
+	}
+
+	public function placeIngredientIntoDB( $ingredient ){
+		addIngredient($ingredient->$name, $ingredient->$description, $ingredient->$image );
+	}
+
+	public function addIngredient($name, $desc, $image ){
+	$sql = "INSERT INTO ingredients (name, description, image) VALUES ('$name','$desc','$image')";
+	$status = $this->exec($sql);
+			if($status === FALSE){
+				echo $sql;
+				echo '<pre class="bg-danger">';
+				print_r ( $this->errorInfo () );
+				echo '</pre>';
+			}
+	}
+
+	public function addComment($page, $comment ){
+	$sql = "INSERT INTO comments (page, comment) VALUES ('$page','$comment')";
+	$status = $this->exec($sql);
+			if($status === FALSE){
+				echo $sql;
+				echo '<pre class="bg-danger">';
+				print_r ( $this->errorInfo () );
+				echo '</pre>';
+			}
+	}
+
+	function getComments($page){
+		$allcomments = array();
+
+		// TODO: Fix this so it goes over each comment that maches the page then
+		// places it into a comment array
+
+		$sql = "SELECT comment FROM comments WHERE page LIKE '%$page%'";
+
+		$com = $this->query($sql);
+
+		if ($comment === FALSE) {
+			 echo $sql;
+			 echo '<pre class="bg-danger">';
+			 print_r ( $this->errorInfo () );
+			 echo '</pre>';
+			 return NULL;
+		 }
+
+		$comment = $com->fetchColumn();
+
+		return $allcomments;
+		}
+
+		function createTableComments(){
+			dropTableByName("comments");
+
+			$sql = "CREATE TABLE comments (
+						page varchar(50),
+						comment varchar(100000))";
+			createTableGeneric($sql);
+		}
+
+	function findIngredient($name){
+
+		$u = new Ingredient ();
+
+		$u->name = $name;
+
+		$sql = "SELECT description FROM ingredients WHERE name LIKE '%$name%'";
+
+		$des = $this->query($sql);
+
+		if ($des === FALSE) {
+			 echo $sql;
+			 echo '<pre class="bg-danger">';
+			 print_r ( $this->errorInfo () );
+			 echo '</pre>';
+			 return NULL;
+		 }
+
+		$u->description = $des->fetchColumn();
+
+		$sql = "SELECT image FROM ingredients WHERE name LIKE '%$name%'";
+
+		$img = $this->query($sql);
+
+		if ($img === FALSE) {
+			 // Only doing this for class. Would never do this in real life
+			 echo $sql;
+			 echo '<pre class="bg-danger">';
+			 print_r ( $this->errorInfo () );
+			 echo '</pre>';
+			 return NULL;
+		 }
+
+		$u->image = $img->fetchColumn();
+
+		return $u;
+}
+
+	function createTableIngredients(){
+		dropTableByName("ingredients");
+
+		$sql = "CREATE TABLE ingredients (
+					name varchar(50),
+					description varchar(100000),
+					image varchar(50))";
+		createTableGeneric($sql);
+	}
+
+
+}
+
+function dropTableByName($tname) {
+	global $db;
+	$sql = "DROP TABLE IF EXISTS $tname";
+	$status = $db->exec ( $sql );
+	if ($status === FALSE) {
+		echo $sql;
+		echo '<pre class="bg-danger">';
+		print_r ( $db->errorInfo () );
+		echo '</pre>';
+	}
+}
+
+function createTableGeneric($sql) {
+ global $db;
+ $status = $db->exec ( $sql );
+ if ($status === FALSE) {
+	 	echo $sql;
+		echo '<pre class="bg-danger">';
+		print_r ( $db->errorInfo () );
+		echo '</pre>';
+ }
+}
+
 class User {
 	public $username = 'username'; /* Users first name */
 	public $password = ''; /* Users last name */
@@ -13,7 +150,7 @@ function makeNewUser($first, $pass, $h) {
 	$u->userName = $first;
 	$u->hash = $pass;
 	$u->email = $h;
-	
+
 	return $u;
 }
 
@@ -66,48 +203,50 @@ function userHashByName($users, $full_name) {
 
 class Ingredient {
 	public $name = 'name'; /* Users first name */
-	public $description = ''; /* Users last name */
-	public $image = ''; /* First then last name with space */
+	public $description; /* Users last name */
+	public $image; /* First then last name with space */
+
+
 }
 function makeNewIng($first, $des, $img) {
 	$u = new Ingredient ();
 	$u->name = $first;
 	$u->description = $des;
 	$u->image = $img;
-	
+
 	return $u;
 }
 
 function setupDefaultIngredients() {
 	$ings = array ();
 	$i = 0;
-	$ings [$i ++] = makeNewIng ( 'Cabage', 'Cabbage or headed cabbage (comprising several cultivars of Brassica 
-            oleracea) is a leafy green or purple biennial plant, grown as an 
-            annual vegetable crop for its dense-leaved heads. It is descended 
-            from the wild cabbage, B. oleracea var. oleracea, and is closely 
-            related to broccoli and cauliflower (var. botrytis), Brussels 
-            sprouts (var. gemmifera) and savoy cabbage (var. sabauda) which are 
-            sometimes called cole crops. Cabbage heads generally range from 0.5 
-            to 4 kilograms (1 to 9 lb), and can be green, purple and white. 
-            Smooth-leafed firm-headed green cabbages are the most common, with 
-            smooth-leafed red and crinkle-leafed savoy cabbages of both colors 
-            seen more rarely. It is a multi-layered vegetable. Under conditions 
-            of long sunlit days such as are found at high northern latitudes in 
+	$ings [$i ++] = makeNewIng ( 'Cabage', 'Cabbage or headed cabbage (comprising several cultivars of Brassica
+            oleracea) is a leafy green or purple biennial plant, grown as an
+            annual vegetable crop for its dense-leaved heads. It is descended
+            from the wild cabbage, B. oleracea var. oleracea, and is closely
+            related to broccoli and cauliflower (var. botrytis), Brussels
+            sprouts (var. gemmifera) and savoy cabbage (var. sabauda) which are
+            sometimes called cole crops. Cabbage heads generally range from 0.5
+            to 4 kilograms (1 to 9 lb), and can be green, purple and white.
+            Smooth-leafed firm-headed green cabbages are the most common, with
+            smooth-leafed red and crinkle-leafed savoy cabbages of both colors
+            seen more rarely. It is a multi-layered vegetable. Under conditions
+            of long sunlit days such as are found at high northern latitudes in
             summer, cabbages can grow much larger.', 'Cabbage.jpg' );
-	$ings [$i ++] = makeNewIng ( 'Eggplant', 'Eggplant (Solanum melongena), or aubergine, is a species of 
-            nightshade grown for its edible fruit. Eggplant is the common name 
-            in North America and Australia, but British English uses the French 
-            word aubergine. It is known in South Asia, Southeast Asia, and South 
+	$ings [$i ++] = makeNewIng ( 'Eggplant', 'Eggplant (Solanum melongena), or aubergine, is a species of
+            nightshade grown for its edible fruit. Eggplant is the common name
+            in North America and Australia, but British English uses the French
+            word aubergine. It is known in South Asia, Southeast Asia, and South
             Africa as brinjal.', 'Eggplant.jpg' );
-	$ings [$i ++] = makeNewIng ( 'Leek', 'The leek is a vegetable, a cultivar of Allium ampeloprasum, the 
-            broadleaf wild leek. The edible part of the plant is a bundle of 
-            leaf sheaths that is sometimes erroneously called a stem or stalk. 
-            Historically, many scientific names were used for leeks, but they 
-            are now all treated as cultivars of A. ampeloprasum. The name 
-            \'leek\' developed from the Anglo-Saxon word leac. Two closely 
-            related vegetables, elephant garlic and kurrat, are also cultivars 
-            of A. ampeloprasum, although different in their uses as food. The 
-            onion and garlic are also related, being other species of the genus 
+	$ings [$i ++] = makeNewIng ( 'Leek', 'The leek is a vegetable, a cultivar of Allium ampeloprasum, the
+            broadleaf wild leek. The edible part of the plant is a bundle of
+            leaf sheaths that is sometimes erroneously called a stem or stalk.
+            Historically, many scientific names were used for leeks, but they
+            are now all treated as cultivars of A. ampeloprasum. The name
+            leek developed from the Anglo-Saxon word leac. Two closely
+            related vegetables, elephant garlic and kurrat, are also cultivars
+            of A. ampeloprasum, although different in their uses as food. The
+            onion and garlic are also related, being other species of the genus
             Allium.', 'Leek.jpg' );
 	writeIngredients ( $ings );
 }

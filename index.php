@@ -18,7 +18,7 @@ include 'inc/header.php';
 		</div>
 		<div class="col-md-3">
 			<div class="image">
-				<img src="Logo.png" class="img-circle" alt="Logo" width="300" height="300">
+				<img src="./assets/img/Logo.png" class="img-circle" alt="Logo" width="300" height="300">
 			</div>
 		</div>
 	</div>

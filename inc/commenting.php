@@ -27,7 +27,11 @@
         <div class="shownComments">
           <?php
           // TODO:  Print commentArr
-          echo $commentArr;
+          foreach ($commentArr as $print) {
+            echo $print;
+            echo "<br>";
+          }
+
           ?>
         </div>
         <?php
@@ -39,8 +43,10 @@
 
         <div class="shownComments">
           <?php
-          // TODO:  Print commentArr
-          echo $commentArr;
+          foreach ($commentArr as $print) {
+            echo $print;
+            echo "<br>";
+          }
           ?>
         </div>
         <?php

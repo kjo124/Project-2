@@ -39,42 +39,52 @@ class Database extends PDO {
 		// TODO: Fix this so it goes over each comment that maches the page then
 		// makes it into a comment object and then places that object into a array
 
-		$sql = "SELECT comment FROM comments WHERE page LIKE '%$page%'";
+		$sql = "SELECT comment, user, timeof FROM comments WHERE page LIKE '%$page%'";
+    foreach ($this->query($sql) as $row) {
+				$comment = new Comment($row['comment'], $row['user'], $row['timeof']);
+				array_push($allcomments, $comment);
+    }
+		return $allcomments;
 
-		$com = $this->query($sql);
 
-		if ($com === FALSE) {
-			 echo $sql;
-			 echo '<pre class="bg-danger">';
-			 print_r ( $this->errorInfo () );
-			 echo '</pre>';
-			 return NULL;
-		 }
-
-		$sql = "SELECT user FROM comments WHERE page LIKE '%$page%'";
-		$u = $this->query($sql);
-		if ($u === FALSE) {
-			 echo $sql;
-			 echo '<pre class="bg-danger">';
-			 print_r ( $this->errorInfo () );
-			 echo '</pre>';
-			 return NULL;
-		}
-
-		$sql = "SELECT timeof FROM comments WHERE page LIKE '%$page%'";
-		$t = $this->query($sql);
-		if ($t === FALSE) {
-			 echo $sql;
-			 echo '<pre class="bg-danger">';
-			 print_r ( $this->errorInfo () );
-			 echo '</pre>';
-			 return NULL;
-		}
-
-		$comment = new Comment($com->fetchColumn(), $u->fetchColumn(), $t->fetchColumn());
-
-		return $comment;
-		//return $allcomments;
+		//
+		//
+		// $sql = "SELECT comment FROM comments WHERE page='$page'";
+		//
+		// $com = $this->query($sql);
+		//
+		// if ($com === FALSE) {
+		// 	 echo $sql;
+		// 	 echo '<pre class="bg-danger">';
+		// 	 print_r ( $this->errorInfo () );
+		// 	 echo '</pre>';
+		// 	 return NULL;
+		//  }
+		//
+		// $sql = "SELECT user FROM comments WHERE page LIKE '%$page%'";
+		// $u = $this->query($sql);
+		// if ($u === FALSE) {
+		// 	 echo $sql;
+		// 	 echo '<pre class="bg-danger">';
+		// 	 print_r ( $this->errorInfo () );
+		// 	 echo '</pre>';
+		// 	 return NULL;
+		// }
+		//
+		// $sql = "SELECT timeof FROM comments WHERE page LIKE '%$page%'";
+		// $t = $this->query($sql);
+		// if ($t === FALSE) {
+		// 	 echo $sql;
+		// 	 echo '<pre class="bg-danger">';
+		// 	 print_r ( $this->errorInfo () );
+		// 	 echo '</pre>';
+		// 	 return NULL;
+		// }
+		//
+		// $comment = new Comment($com->fetchColumn(), $u->fetchColumn(), $t->fetchColumn());
+		//
+		// return $comment;
+		
 		}
 
 		function createTableComments(){

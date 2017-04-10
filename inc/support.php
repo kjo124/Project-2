@@ -43,7 +43,7 @@ class Database extends PDO {
 
 		$com = $this->query($sql);
 
-		if ($comment === FALSE) {
+		if ($com === FALSE) {
 			 echo $sql;
 			 echo '<pre class="bg-danger">';
 			 print_r ( $this->errorInfo () );

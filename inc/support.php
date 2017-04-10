@@ -22,8 +22,8 @@ class Database extends PDO {
 			}
 	}
 
-	public function addComment($page, $comment ){
-	$sql = "INSERT INTO comments (page, comment) VALUES ('$page','$comment')";
+	public function addComment($page, $comment, $user, $timeof ){
+	$sql = "INSERT INTO comments (page, comment, user, timeof) VALUES ('$page','$comment','$user','$timeof')";
 	$status = $this->exec($sql);
 			if($status === FALSE){
 				echo $sql;
@@ -37,7 +37,7 @@ class Database extends PDO {
 		$allcomments = array();
 
 		// TODO: Fix this so it goes over each comment that maches the page then
-		// places it into a comment array
+		// makes it into a comment object and then places that object into a array
 
 		$sql = "SELECT comment FROM comments WHERE page LIKE '%$page%'";
 
@@ -51,7 +51,27 @@ class Database extends PDO {
 			 return NULL;
 		 }
 
-		$comment = $com->fetchColumn();
+		$sql = "SELECT user FROM comments WHERE page LIKE '%$page%'";
+		$u = $this->query($sql);
+		if ($u === FALSE) {
+			 echo $sql;
+			 echo '<pre class="bg-danger">';
+			 print_r ( $this->errorInfo () );
+			 echo '</pre>';
+			 return NULL;
+		}
+
+		$sql = "SELECT timeof FROM comments WHERE page LIKE '%$page%'";
+		$t = $this->query($sql);
+		if ($t === FALSE) {
+			 echo $sql;
+			 echo '<pre class="bg-danger">';
+			 print_r ( $this->errorInfo () );
+			 echo '</pre>';
+			 return NULL;
+		}
+
+		$comment = new Comment($com->fetchColumn(), $u->fetchColumn(), $t->fetchColumn());
 
 		return $comment;
 		//return $allcomments;
@@ -62,7 +82,9 @@ class Database extends PDO {
 
 			$sql = "CREATE TABLE comments (
 						page varchar(50),
-						comment varchar(100000))";
+						comment varchar(100000),
+						user varchar(50),
+						timeof varchar(100))";
 			createTableGeneric($sql);
 		}
 
@@ -115,6 +137,35 @@ class Database extends PDO {
 	}
 
 
+}
+
+class Comment {
+	public $commentText = "";
+	public $user = "";
+	public $time = "";
+
+	function __construct($commentText="",$user="",$time=""){
+		$this->commentText = $commentText;
+		$this->user = $user;
+		$this->time = $time;
+	}
+
+	function __toString(){
+		return "User: " . (string)$this->user . " at " . (string)$this->time . "<br>" . (string)$this->commentText ;
+		// return "why isnt this working?";
+		// return (string)$this->time;
+		//return $this->time;
+	}
+
+}
+
+function makeNewComment($com, $u, $t) {
+	$c = new Comment ();
+	$c->commentText = $com;
+	$c->user = $u;
+	$c->time = $t;
+
+	return $c;
 }
 
 function dropTableByName($tname) {

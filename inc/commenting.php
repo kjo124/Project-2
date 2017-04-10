@@ -19,7 +19,7 @@
         echo "<br>";
         echo "Comment added.";
         echo "<br>";
-        $dbc->addComment($id, $newstr );
+        $dbc->addComment($id, $newstr , $_SESSION["username"], date('l jS \of F Y h:i:s A'));
         $commentArr = $dbc->getComments($id);
 
         ?>

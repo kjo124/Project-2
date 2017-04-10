@@ -2,13 +2,9 @@
 include 'inc/support.php';
 include 'inc/control.php';
 include 'inc/header.php';
- $id = $_GET['id'];
-
- $db = new Database();
- //$db->createTableIngredients();
-
-
- $ingredient = $db->findIngredient($id);
+$id = $_GET['id'];
+$db = new Database();
+$ingredient = $db->findIngredient($id);
 ?>
 
 <div class="container-fluid">

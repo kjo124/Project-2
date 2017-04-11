@@ -59,7 +59,18 @@ div.addIngForm{
 	display: inline-block;
 	text-align: center;
 }
-
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 #fimage{
     height: auto;

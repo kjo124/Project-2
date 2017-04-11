@@ -37,6 +37,7 @@ if(isset($_POST["submitfrm"])){
 
 <div id="addIngForm">
     <h2 align="center">Add Ingredients</h2>
+    <div class="form">
     <form name='input' action="#" method='post' enctype="multipart/form-data" id="formInput" align="center" >
 
         <input id="formBox" type='text' value='<?php echo $ingName; ?>' id='ingName' name='ingName' placeholder='Enter Ingredient Name'/>
@@ -52,14 +53,14 @@ if(isset($_POST["submitfrm"])){
 		<br/>
 
 
-
+    <br>
 
 
 
         <input type='submit' value='Add ingredient' name='submitfrm' class="Submit Form" />
 
     </form>
-
+  </div>
 </div>
 
 <?php include 'inc/footer.php';?>

@@ -30,6 +30,7 @@
           foreach ($commentArr as $print) {
             echo $print;
             echo "<br>";
+            echo "<br>";
           }
 
           ?>
@@ -45,6 +46,7 @@
           <?php
           foreach ($commentArr as $print) {
             echo $print;
+            echo "<br>";
             echo "<br>";
           }
           ?>

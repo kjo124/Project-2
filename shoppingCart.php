@@ -63,6 +63,50 @@ include 'inc/header.php';
                 echo $value . " " . $key . "<br>";
               }
             }
+            
+            echo "<br>";
+            ?>
+            <form action="" method="POST">
+              <input type="submit" name="buy" value="Confirm Purchase">
+            </form>
+            <?php
+            if (isset($_POST['buy'])===true) {
+                $handle = fopen("databases/users.csv", "r");
+                while (($data = fgetcsv($handle)) !==FALSE){
+                    if($_SESSION['username'] == $data['0']){
+                        $email = $data['2'];
+                        }
+                     }   
+                 
+                $msg = 'Items Purchased: ';
+                $email1 = 'bobby20@comcast.net';
+                $email2 = 'kylejodin@gmail.com';
+                $email3 = 'ct310@cs.colostate.edu';
+            foreach ($cart as $key => $value) {
+              if ($value > 1) {
+                $msg .= " " . $value . " " . $key . "s";
+              } else {
+                $msg .=  " " .$value . " " . $key;
+              }
+            }
+                $subject = $_SESSION['username']." your order has been confirmed!";
+                $subject2 = $_SESSION['username']." just made a purchase!";
+
+                mail($email, $subject,$msg);
+                mail($email1,$subject2,$msg);
+                mail($email2,$subject2,$msg);
+                mail($email3,$subject2,$msg);
+               // echo "Confirmation email has been sent";
+                $cart_array=array();
+                $_SESSION['cart_items'] = $cart_array;
+                echo "Confirmation email has been sent";
+                
+               
+            }
+            
+            
+            
+            
           } else {
             echo "Cart is empty!";
           }

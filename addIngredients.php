@@ -60,5 +60,6 @@ if(isset($_POST["submitfrm"])){
 
     </form>
 
+</div>
 
 <?php include 'inc/footer.php';?>

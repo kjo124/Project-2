@@ -55,7 +55,10 @@ div.shownComments{
 	border-style: solid;
   border-width: medium;
 }
-
+div.addIngForm{
+	display: inline-block;
+	text-align: center;
+}
 
 
 #fimage{

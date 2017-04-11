@@ -17,7 +17,7 @@
 <!-- Start of page Body  -->
 <body>
 <div class="jumbotron">
-    <h1>Project #2 <img src="./assets/img/Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
+    <h1>Kyle & Bobby Ingredients <img src="./assets/img/Logo.png" class="img-circle" alt="Logo" width="150" height="150"></h1>
 </div>
 <?php include 'nav.php';?>
 <div class="content">

@@ -221,8 +221,8 @@ function setupDefaultUsers() {
 	$i = 0;
 	$users [$i ++] = makeNewUser ( 'Bobby', '$2a$07$AGlkyWHt4K5H8Cv7ekuTeOJPUKZyyY9h9E./MdjNrYjCRIlYgTpym', 'bobby20@comcast.net' );
 	$users [$i ++] = makeNewUser ( 'Kyle', '$2a$10$FxWxytnHKvq598xKdP.aYOVcOLdfCXszevDYlcSmdB0FStPbcY/JW', 'kylejodin@gmail.com' );
-	$users [$i ++] = makeNewUser ( 'ct310', '$2a$07$xfB0CelpA4myJ5EOfb7KT.57k83KPfHaOTsH22.di8VMPCtqh5heC', 'nspatil@colostate.edu' );
-	$users [$i ++] = makeNewUser ( 'cust1', '$2a$10$tpYldeemy1UVLM.XySiBuuIFi6gOydwhvho93Gs8LRpB4G3npPH0u', 'kylejodin@gmail.com' );
+	$users [$i ++] = makeNewUser ( 'ct310', '$2a$10$AoWRyJ/EvpnVfchrezeTKuzJBYBomjiG3AszuFw2mvWAvJf2APojO', 'ct310@cs.colostate.edu' );
+	$users [$i ++] = makeNewUser ( 'fred', '$2a$10$k3YGRsJVAe8b0GiZ5hIxzeGwH11Wsut5MIS8JT89eF.UuyiKIhp.W', 'ct310@cs.colostate.edu' );
 	$users [$i ++] = makeNewUser ( 'cust2', '$2a$10$.GR2dlFJU.YxNBphzm6gyeVVy9Jw358La/i.3JVI60Ctl0c6Y8uYq', 'bobby20@comcast.net' );
 	writeUsers ( $users );
 }

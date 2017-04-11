@@ -42,7 +42,28 @@ include 'inc/header.php';
 		<div class="col-md-6">
 			<!-- middle -->
 
-      <?php  print_r($_SESSION['cart_items']); ?>
+      <?php
+      $cart = array();
+        if (isset($_SESSION['cart_items'])===true){
+          if (!empty($_SESSION['cart_items'])) {
+            foreach ($_SESSION['cart_items'] as $item) {
+              if (array_key_exists($item, $cart)) {
+                $cart[$item]++;
+              } else {
+                $cart[$item] = 1;
+              }
+            }
+
+            //print_r($_SESSION['cart_items']);
+            echo "Cart: ";
+            print_r($cart);
+          } else {
+            echo "Cart is empty!";
+          }
+
+        } else {
+          echo "Cart is empty!";
+        } ?>
 
 		</div>
 		<div class="col-md-3">

@@ -23,7 +23,7 @@ if(isset($_POST["submitfrm"])){
     $loc = "./uploads/".$_FILES['image']['name'];
                  //print_r($_FILES);
     move_uploaded_file ( $_FILES['image']['tmp_name'], "$loc" );
-    chmod($loc, 0755);
+    chmod($loc, 0644);
     $msg = 'Ingredient added';
     }
     else{

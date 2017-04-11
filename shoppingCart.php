@@ -55,8 +55,14 @@ include 'inc/header.php';
             }
 
             //print_r($_SESSION['cart_items']);
-            echo "Cart: ";
-            print_r($cart);
+            echo "In your cart you have: <br>";
+            foreach ($cart as $key => $value) {
+              if ($value > 1) {
+                echo $value . " " . $key . "s" . "<br>";
+              } else {
+                echo $value . " " . $key . "<br>";
+              }
+            }
           } else {
             echo "Cart is empty!";
           }
@@ -68,6 +74,7 @@ include 'inc/header.php';
 		</div>
 		<div class="col-md-3">
 			<!-- right -->
+      <!-- Buy Button -->
 		</div>
 	</div>
 </div>
